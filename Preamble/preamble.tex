@@ -56,6 +56,7 @@
 
 \RequirePackage[labelsep=space,tableposition=top]{caption}
 \renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
+\usepackage[font=small,labelfont=bf]{caption}
 
 %\usepackage{caption}
 %\captionsetup[table]{position=bottom} % Caption below table
@@ -112,6 +113,9 @@
 % Math packages and commands
 
 \usepackage{xfrac}
+
+
+\newcommand{\ket}[1]{\(\left|#1\right\rangle \)}
 
 % *****************************************************************************
 % *************************** Bibliography  and References ********************

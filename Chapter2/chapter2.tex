@@ -17,14 +17,17 @@ For this we will follow the guidance of \citep{SAS}.
 
 
 %********************************** % First Section  *************************************
-\section{Laser interactions - Two-level atom} %Section - 2.1
+\section{Laser interactions~-~Two-level atom} %Section - 2.1
 
-In the upcomming sections we will derive an expression for the absorption or to be precise the
-intensity of the laser beam, but first we need a model on which basis we will do this.
-\bigskip
-
-The simplest model is the two-level atom with a groundstate \ket{g} and one excited state \ket{e}. There are three
-possible transitions:
+We begin with the interaction between a laser field and a sample of stationary atoms having
+only two possible energy levels. Aspects of thermal motion will be treated subsequently.\\
+The difference \(\Delta E = E_1 - E_0\) between the excited state \ket{e} energy \(E_1\) and
+ground state \ket{g} energy \(E_0\) is used with Planck's law to determine the photon frequency
+\(\nu \) associated with transitions between the two states:
+\begin{align}
+    \Delta E = h \nu_0
+\end{align}
+There are three transition processes involving atoms and laser fields:
 \bigskip
 
 \begin{minipage}[c][][c]{.35\textwidth}
@@ -41,9 +44,58 @@ possible transitions:
 \end{minipage}
 \bigskip
 
-In our case we will only consider the photon absorption, because emission is isotropic. If we
-only consider absorption than the following expression describes the decrease of the
-intensity in the rubidium cell:
+We consider spontaneous emission first~--~a process characterized by a transition rate or probability
+per unit time for an atom in the excited state to decay to the ground state. This transition rate will 
+be denoted \(\Gamma_\omega \) and is about \(2\pi\cdot \SI{1.3}{\mega\hertz} \) for the rubidium levels
+studied here. \\
+In the absence of an external field, any initial population of excited state atoms would decay exponentially
+to the ground state with a mean life time \(\Delta t = 1/\Gamma_\omega \approx \SI{122}{\nano\second} \).
+In the rest frame of the atom, spontaneous photons are emitted in all directions with an energy spectrum
+having a mean \(E=h\nu_0 \) and a full width at half maximum (FWHM) \(\Delta E \) given by the
+Heisenberg uncertainty principle \(\Delta E \Delta t = \hbar \) or \(\Delta E = \Gamma_\omega\hbar \).
+Experssed in frequency units, the FWHM is called the \textit{natural linewidth} and given the symbol
+\(\Gamma_\nu \). Thus
+\begin{align}
+    \Gamma_\nu = \frac{\Gamma_\omega}{2\pi}
+\end{align}
+For our rubidium levels, \(\Delta E \approx 5.4\cdot \SI{e-9}{\electronvolt} \) or \(\Gamma_\nu\approx \SI{1.3}{\mega\hertz} \). \\ 
+The stimulated emission and absorption processes are also described by a transition rate~--~a single rate
+giving the probability per unit time for a ground state atom to absorb a laser photon or for an excited
+state atom to emit a laser photon. The stimulated transition rate is proportional to the laser intensity
+\textit{I} (SI units of \si{\watt\per\meter\squared}) and is only significantly different from zero when
+the laser frequency \(\nu \) is near the resonance frequency \(\nu_0 \). This transition rate will be denoted
+\(\alpha I \), where 
+
+\begin{minipage}[c][][c]{.45\textwidth}
+\begin{align}
+    \alpha = \alpha_0 \mathl{L}(\nu,\nu_0)
+\end{align}
+and
+\begin{align}
+    \mathl{L}(\nu,\nu_0) &= \frac{1}{ 1+4 {(\nu-\nu_0)}^2 / {\Gamma_\nu}^2 }
+\end{align}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\includegraphics[width=\textwidth]{nLinewidth}
+\captionof{figure}{The Lorentzian line shape profile for resonance absorption}
+\label{fig:nlinewidth}
+\end{minipage}
+\bigskip
+
+gives the \textit{Lorentzian} frequency dependence as shown in Fig.~\ref{fig:nlinewidth}.
+\(\mathl{L}(\nu,\nu_0) \) also describes the spectrum of radiation from spontaneous emission
+and the width \(\Gamma_\nu \) is the same for both cases. The maximum transition rate 
+\(\alpha_0 I \) occors right on resonance (\(\nu~=~\nu_0 \)).\\
+The value of \(\Gamma_\omega / \alpha_0 \) defines the saturation intensity \(I_{sat} \) of the
+atoms. Its significance is that when the laser intensity is equal to the saturation intensity,
+excited state atoms are equally likely to decay by stimulated emission or by spontaneous emission.
+\pagebreak
+
+%********************************** % Second Section  *************************************
+\section{Basic laser absorption spectroscopy}   %Section - 2.2
+
+
 
 \begin{align}
     I(x+\mathrm{d}x)-I(x) = - I(x) h\nu \alpha n  (P_0-P_1) \mathrm{d}x \label{int_eq}

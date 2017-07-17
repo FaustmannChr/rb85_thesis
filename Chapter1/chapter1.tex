@@ -15,14 +15,14 @@ The strategy pursued to trap is a optical dipole trap. For that the laser light
 needs to be detuned from a resonance of the atom. Thereafter the atoms are trapped
 to the maxima of intensity for a red detuned laser. The beam will be reflected 
 from the resonator surface and creates thereby a standing wave. The 1\(^{st}\)
-maxima is at \(\sfrac{ \lambda_{trap}}{4}\).
+maxima is at \(\sfrac{1}{4}~\lambda_{trap} \).
 \bigskip
 
 So how to choose \(\lambda_{trap}\)?
 \bigskip
 
 Because of the interaction with the BMR evanescent field the atoms need to
-be trapped really close: \(\frac{\lambda}{2\pi}\approx \SI{130}{\nano\meter}\) \\
+be trapped really close: \(\lambda / 2\pi \approx \SI{130}{\nano\meter} \) \\
 Most common resonance of rubidium is \(5S_{1/2} \rightarrow 5P_{3/2}\) @
 \SI{780.24}{\nano\meter}. If we use a laser red-detuned from \(\lambda \) = 
 \SI{780.24}{\nano\meter} then our first maxima would be at \SI{195}{\nano\meter}
@@ -32,24 +32,24 @@ Most common resonance of rubidium is \(5S_{1/2} \rightarrow 5P_{3/2}\) @
 But rubidium has another transition from \(5S_{1/2} \rightarrow 6P_{3/2}\) @
 \SI{420.29}{\nano\meter}, which leads to a distance of \SI{105}{\nano\meter} from
 the BMR to the 1\(^{st}\) maxima. But in the formlula \citep{grimm} of the trap potenial (\(U_{dip}\))
-arises the transition strength (\(\Gamma \)) of this specific transition:
+arises the transition strength (\(\Gamma_\omega \)) of this specific transition:
 \bigskip
 \begin{align}
-    U_{dip}(\mathbf{r})=-\frac{\pi c^2}{\hbar\omega_0^3} \left( \frac{\Gamma}{\Delta} \right) I(\mathbf{r})
+    U_{dip}(\mathbf{r})=-\frac{\pi c^2}{\hbar\omega_0^3} \left( \frac{\Gamma_\omega}{\Delta} \right) I(\mathbf{r})
 \end{align}
 \bigskip
 We have to compare this potential to the kinetic energy of our rubidium atoms. The atoms fall approximately
 \SI{60}{\milli\second} and the corresponding kinetic engergy would be \(E_{kin} = \frac{1}{2} m_{Rb} v^2\).
-In terms of temperature we would get: \(\frac{E_{kin}}{k_B} = \SI{1.77}{\milli\kelvin}\). This is quite huge
-for a dipole trap. For that reason one needs to know \(\Gamma_{420nm-Line}\) and one also needs to have a trap
+In terms of temperature we would get: \(E_{kin} / k_B = \SI{1.77}{\milli\kelvin} \). This is quite huge
+for a dipole trap. For that reason one needs to know \(\Gamma_{\omega,420nm-Line} \) and one also needs to have a trap
 with a small detuning. This requires to see the transitions to have a reference to lock the laser afterwards.
 \bigskip
-To determine \(\Gamma_{420nm-Line}\) we can use the relation with the intensity saturation:
+To determine \(\Gamma_{\omega,420nm-Line} \) we can use the relation with the intensity saturation:
 \begin{align}
-    I_{sat,420} &= \frac{\Gamma_{tot,420}\times\omega_{420}^3\times I_{sat,780}}{\Gamma_{420}\times\Gamma_{780}\times\omega_{780}^3}
+    I_{sat,420} &= \frac{\Gamma_{\omega,tot,420}\cdot{\omega_{420}}^3\cdot I_{sat,780}}{\Gamma_{\omega,420}\cdot\Gamma_{\omega,780}\cdot{\omega_{780}}^3}
 \end{align}
 \begin{align*}
-    \text{with~~~} \Gamma_{tot,420} &= \frac{1}{total~lifetime~of~6P_{3/2}~state}
+    \text{with~~~} \Gamma_{\omega,tot,420} &= \frac{1}{total~lifetime~of~6P_{3/2}~state}
 \end{align*}
 \medskip
 

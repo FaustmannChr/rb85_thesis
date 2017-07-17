@@ -34,9 +34,9 @@ But rubidium has another transition from \(5S_{1/2} \rightarrow 6P_{3/2}\) @
 the BMR to the 1\(^{st}\) maxima. But in the formlula \citep{grimm} of the trap potenial (\(U_{dip}\))
 arises the transition strength (\(\Gamma \)) of this specific transition:
 \bigskip
-\begin{align*}
+\begin{align}
     U_{dip}(\mathbf{r})=-\frac{\pi c^2}{\hbar\omega_0^3} \left( \frac{\Gamma}{\Delta} \right) I(\mathbf{r})
-\end{align*}
+\end{align}
 \bigskip
 We have to compare this potential to the kinetic energy of our rubidium atoms. The atoms fall approximately
 \SI{60}{\milli\second} and the corresponding kinetic engergy would be \(E_{kin} = \frac{1}{2} m_{Rb} v^2\).
@@ -45,10 +45,13 @@ for a dipole trap. For that reason one needs to know \(\Gamma_{420nm-Line}\) and
 with a small detuning. This requires to see the transitions to have a reference to lock the laser afterwards.
 \bigskip
 To determine \(\Gamma_{420nm-Line}\) we can use the relation with the intensity saturation:
+\begin{align}
+    I_{sat,420} &= \frac{\Gamma_{tot,420}\times\omega_{420}^3\times I_{sat,780}}{\Gamma_{420}\times\Gamma_{780}\times\omega_{780}^3}
+\end{align}
 \begin{align*}
-    I_{sat,420} &= \frac{\Gamma_{tot,420}\times\omega_{420}^3\times I_{sat,780}}{\Gamma_{420}\times\Gamma_{780}\times\omega_{780}^3} \\ \\
     \text{with~~~} \Gamma_{tot,420} &= \frac{1}{total~lifetime~of~6P_{3/2}~state}
 \end{align*}
+\medskip
 
 \(\Rightarrow \) We want to measure \(I_{sat}\) for the blue \SI{420.29}{\nano\meter}-line. 
 

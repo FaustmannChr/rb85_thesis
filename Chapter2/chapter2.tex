@@ -1,12 +1,14 @@
 %!TEX root = ../thesis.tex
+% Spellcheck ignore
+% cSpell:ignore citep, ifpdf, graphicspath, bigskip, minipage, includegraphics, twolevel, captionof, nano, FWHM, linewidth, electronvolt, Linewidth, nlinewidth, Lorentzian, pagebreak, wrapfigure, photodiode, mathrm, itemsep, extracolsep, toprule, multicolumn, midrule, bottomrule, energylevel, hyperfine, groundstate, nist, groundstates, nonumber, Lorentzians
 %*******************************************************************************
 %****************************** Second Chapter *********************************
 %*******************************************************************************
 
-\chapter{Absorbtion of photon by an atom}  %Title of the Second Chapter
+\chapter{Absorption of photon by an atom}  %Title of the Second Chapter
 The purpose of this section is to outline the basic features observed in saturated absorption
 spectroscopy and relate them to simple atomic and laser physics principles.
-For this we will follow the guidance of \citep{SAS}.
+For this we will follow the guidance of \citep{SAS} and \citep{SAS_appendix}.
 
 \ifpdf{}
     \graphicspath{{Chapter2/Figs/Raster/}{Chapter2/Figs/PDF/}{Chapter2/Figs/}}
@@ -53,9 +55,9 @@ to the ground state with a mean life time \(\Delta t = 1/\Gamma_\omega \approx \
 In the rest frame of the atom, spontaneous photons are emitted in all directions with an energy spectrum
 having a mean \(E=h\nu_0 \) and a full width at half maximum (FWHM) \(\Delta E \) given by the
 Heisenberg uncertainty principle \(\Delta E \Delta t = \hbar \) or \(\Delta E = \Gamma_\omega\hbar \).
-Experssed in frequency units, the FWHM is called the \textit{natural linewidth} and given the symbol
+Expressed in frequency units, the FWHM is called the \textit{natural linewidth} and given the symbol
 \(\Gamma_\nu \). Thus
-\begin{align}
+\begin{align}\label{eq:gamma_relation}
     \Gamma_\nu = \frac{\Gamma_\omega}{2\pi}
 \end{align}
 For our rubidium levels, \(\Delta E \approx 5.4\cdot \SI{e-9}{\electronvolt} \) or \(\Gamma_\nu\approx \SI{1.3}{\mega\hertz} \). \\ 
@@ -68,26 +70,25 @@ the laser frequency \(\nu \) is near the resonance frequency \(\nu_0 \). This tr
 
 \begin{minipage}[c][][c]{.45\textwidth}
 \begin{align}
-    \alpha = \alpha_0 \mathl{L}(\nu,\nu_0)
+    \alpha = \alpha_0 \mathcal{L}(\nu,\nu_0)
 \end{align}
 and
 \begin{align}
-    \mathl{L}(\nu,\nu_0) &= \frac{1}{ 1+4 {(\nu-\nu_0)}^2 / {\Gamma_\nu}^2 }
+    \mathcal{L}(\nu,\nu_0) &= \frac{1}{ 1+4 {(\nu-\nu_0)}^2 / {\Gamma_\nu}^2 }
 \end{align}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{.45\textwidth}
 \includegraphics[width=\textwidth]{nLinewidth}
-\captionof{figure}{The Lorentzian line shape profile for resonance absorption}
-\label{fig:nlinewidth}
+\captionof{figure}{\label{fig:nlinewidth} The Lorentzian line shape profile for resonance absorption}
 \end{minipage}
 \bigskip
 
 gives the \textit{Lorentzian} frequency dependence as shown in Fig.~\ref{fig:nlinewidth}.
-\(\mathl{L}(\nu,\nu_0) \) also describes the spectrum of radiation from spontaneous emission
+\(\mathcal{L}(\nu,\nu_0) \) also describes the spectrum of radiation from spontaneous emission
 and the width \(\Gamma_\nu \) is the same for both cases. The maximum transition rate 
-\(\alpha_0 I \) occors right on resonance (\(\nu~=~\nu_0 \)).\\
-The value of \(\Gamma_\omega / \alpha_0 \) defines the saturation intensity \(I_{sat} \) of the
+\(\alpha_0 I \) occurs right on resonance (\(\nu~=~\nu_0 \)).\\
+The value of \(\Gamma_\omega / \alpha_0 \) defines the saturation intensity \(I_{s} \) of the
 atoms. Its significance is that when the laser intensity is equal to the saturation intensity,
 excited state atoms are equally likely to decay by stimulated emission or by spontaneous emission.
 \pagebreak
@@ -95,53 +96,146 @@ excited state atoms are equally likely to decay by stimulated emission or by spo
 %********************************** % Second Section  *************************************
 \section{Basic laser absorption spectroscopy}   %Section - 2.2
 
+\begin{wrapfigure}{R}{.5\textwidth}
+    \centering
+    \includegraphics[width=0.45\textwidth]{absorption_spectroscopy_theory}    
+    \caption{\label{fig:absorption_spectroscopy} Basic arrangement for ordinary laser absorption spectroscopy.}
+\end{wrapfigure}
 
+The basic arrangement for ordinary laser absorption spectroscopy through a gaseous sample is shown in
+Fig.~\ref{fig:absorption_spectroscopy}. A laser beam passes through the vapor cell and its intensity is measured
+by a photodiode detector as the laser frequency \(\nu \) is scanned through the natural
+resonance frequency. \\
+When a laser beam propagates through a gaseous sample, the two stimulated transition processes change the intensity
+of the laser beam and affect the density of atoms in the ground and excited states. To get a better understanding 
+of absorption spectroscopy we begin with the basic equation describing how the laser intensity changes as it 
+propagates through the sample and then continue with the effects of Doppler shifts and population changes. 
 
-\begin{align}
-    I(x+\mathrm{d}x)-I(x) = - I(x) h\nu \alpha n  (P_0-P_1) \mathrm{d}x \label{int_eq}
+%********************************** % Third Section  **************************************
+\section{Laser absorption} %Section - 2.3
+
+Because of stimulated emission and absorption, the laser intensity \(I(x) \) varies as it propagates from \(x \) to
+\(x~+~\mathrm{d}x \) in the medium. The following equation describes this process:
+\begin{align} \label{eq:Int}
+    I(x+\mathrm{d}x)-I(x) = - I(x) h\nu \alpha n_0  (P_0-P_1) \mathrm{d}x 
 \end{align}
-
 where:
+
 \begin{itemize}
     \setlength{\itemsep}{0ex}
-    \item[\(\alpha I(x)\)]\ldots~stimulated transition rate
-    \item[n]\ldots~atom density
-    \item[\(P_0\)]\ldots~proportion of atoms in \ket{g}
-    \item[\(P_1\)]\ldots~proportion of atoms in \ket{e}
+    \item[\(n_0\)]\ldots~atom density 
+    \item[\(n_0 P_0\)]\ldots~proportion of atoms in \ket{g}
+    \item[\(n_0 P_1\)]\ldots~proportion of atoms in \ket{e}
 \end{itemize}
-\pagebreak
+
+Equation~\ref{eq:Int} leads to
+\begin{align}
+    \frac{ \mathrm{d}I }{ \mathrm{d}x } = -\kappa I
+\end{align}
+where the \textit{absorption coefficient} (fractional absorption per unit length)
+\begin{align}\label{eq:kappa}
+    \kappa = h\nu n_0 \alpha (P_0-P_1)
+\end{align}
+
+The proportionality to \(P_0-P_1 \) arises from the competition between stimulated emission and absorption
+and it is important to appreciate the consequences. If there are equal numbers of atoms in the ground and
+excited state (\(P_0-P_1=0\)), laser photons are as likely to be emitted by an atom in the excited state as
+they are to be absorbed by an atom in the ground state and there will be no attenuation of the incident beam.
+The attenuation maximizes when all atoms are in the ground state (\(P_0-P_1=1\)) because only upward 
+transitions would be possible. And the attenuation can even reverse sign (become an amplification as it does
+in laser gain media) if there are more atoms in the excited state (\(P_0>P_1\)).
+
 %********************************** % Fourth Section  *************************************
-\section{Absorption coefficient}  %Section - 1.4
-Out of equation~(\ref{int_eq}) we define the absorption coefficient \(\kappa \):
-\begin{align}
-    \kappa = h\nu \alpha n  (P_0-P_1) \label{kappa}
-\end{align}
-With the next steps we wanna decribe the different parameters and derive \(\kappa \) with all
-its dependencies. For this we will follow the guidance of \citep{SAS}.
-\bigskip
+\section{Doppler shifts}  %Section - 2.4
 
-\(h\nu \) is the excitation energy for the atom to change from ground \ket{g} to excited state \ket{e}. \\
-From the stimulated transition rate \(\alpha \) denotes:
+Atoms in a vapor cell move randomly in all directions with each component of velocity having a distribution
+of values. Only the component of velocity parallel to the laser beam direction will be important when taking
+into account Doppler shifts and it is this component we refer to with the symbol \(v \). The density of atoms
+\(\mathrm{d}n \) in the velocity group between \(v \) and \(v+\mathrm{d}v \) is given by the Boltzmann velocity
+distribution:
 \begin{align}
-    \alpha = \alpha_0 \mathl{L}(\nu,\nu_0)
+    \mathrm{d}n = n_0\sqrt{ \frac{m}{2\pi k_B T} } e^{-mv^2 / 2 k_B T} \mathrm{d}v
 \end{align}
-where
+With a standard deviation given by:
 \begin{align}
-    \alpha_0 &= \frac{2\pi\Gamma}{I_{sat}} \\
-    \mathl{L}(\nu,\nu_0) &= \frac{1}{ 1+\frac{ 4{(\nu-\nu_0)}^2 }{\Gamma^2} }
+    \sigma_v = \sqrt{\frac{k_B T}{m}}
 \end{align}
+This is just a standard Gaussian distribution
+\begin{align}
+    \mathrm{d}n = n_0 \frac{1}{\sqrt{2\pi}\sigma_v}  e^{-v^2 / 2\sigma_v} \mathrm{d}v
+\end{align}
+with a mean of zero~--~indicating the atoms are equally likely to be going in either direction. It is properly
+normalized so that the integral over all velocities (\(-\infty \rightarrow \infty) \) is \(n_0 \), the overall
+atom density. \\
+Atoms moving with a velocity \(v \) see the laser beam Doppler shifted by the amount \(\nu(v/c) \). We will
+take an equivalent, alternate view that atoms moving with a velocity \(v \) have a Doppler shifted resonance
+frequency
+\begin{align}\label{eq:nu_shift}
+    \nu'_0 = \nu_0 \left ( 1 + \frac{v}{c} \right)
+\end{align}
+in the lab frame. The sign has been chosen to be correct for a laser beam propagating in the positive direction
+so that the resonance frequency is blue shifted to higher frequencies if \(v \) is positive and red shifted if
+\(v \) is negative.\\
+The absorption coefficient \(\mathrm{d}\kappa \) from a velocity group \(\mathrm{d}n \) at a laser frequency 
+\(\nu \) is then obtained from Eq.~\ref{eq:kappa} by substituting \(\mathrm{d}n \) for \(n_0 \) and by adjusting
+the Lorentzian dependence of \(\alpha \) so that it is centered on the Doppler shifted resonance frequency
+\(\nu'_0 \) (Eq.~\ref{eq:nu_shift}).
+\begin{align}
+    \mathrm{d}\kappa = h\nu \alpha_0(P_0-P_1) \mathcal{L}(\nu,\nu'_0) \mathrm{d}n
+\end{align}
+The absorption coefficient from all atoms is then found by integrating over all velocity groups.
 
-%\begin{figure}[h]
-%\centering
-%\includegraphics[width=0.6\textwidth]{nLinewidth}
-%\caption{The Lorentzian line shape profile for resonance absorption}
-%\label{fig:nlinewidth} 
-%\end{figure}
-
-\pagebreak
 %********************************** % Fifth Section  *************************************
-\section{Doppler shifts}  %Section - 1.5
-
+\section{Population}   %Section - 2.5
+Before we can determine the absorption coefficient we need an expression for \(P_0-P_1 \).
+For that we have to take into account the changes to the ground and excited state populations arising
+from a laser beam propagating through the cell. The rate equations for the ground and excited state
+probabilities or fractions become:
+\begin{align}
+    \frac{\mathrm{d}P_0}{\mathrm{d}t} &= \Gamma_\omega P_1 - \alpha I (P_0-P_1) \nonumber \\
+    \frac{\mathrm{d}P_1}{\mathrm{d}t} &= -\Gamma_\omega P_1 + \alpha I (P_0-P_1)
+\end{align} 
+where the first term on the right in each equation arises from spontaneous emission and the second term
+arises from stimulated absorption and emission.\\
+Considering \(P_0+P_1=1 \) and the steady state condition
+\begin{align}
+    \frac{\mathrm{d}P_0}{\mathrm{d}t} = \frac{\mathrm{d}P_1}{\mathrm{d}t} = 0
+\end{align}
+we get for the populations
+\begin{align}
+        P_0 = \frac{\Gamma_\omega + \alpha I}{\Gamma_\omega + 2 \alpha I}~; \qquad
+        P_1 = \frac{\alpha I}{\Gamma_\omega + 2 \alpha I}
+\end{align}
+which leads to
+\begin{align}
+    (P_0-P_1) = \frac{\Gamma_\omega}{\Gamma_\omega + 2 \alpha I} 
+\end{align}
+As we can see the population difference is dependent on \(\Gamma_\omega \) (spontaneous decay rate),
+which is related to the \textit{Lorentzian width parameter} \(\Gamma_\nu \).
+To combine the Lorentzians in \(\alpha \) and \(P_0-P_1 \) we rewrite both expressions with 
+Eq.~\ref{eq:gamma_relation} and \(\Delta\nu = 2(\nu-\nu_0) \):
+\begin{align}
+    \alpha = \alpha_0\frac{1}{ 1+ \Delta\nu^2 / {\Gamma_\nu}^2 } 
+                           = \alpha_0\frac{\Gamma_\nu^2}{\Gamma_\nu^2 + \Delta\nu^2}~; \qquad
+    (P_0-P_1) = \frac{2\pi\Gamma_\nu}{2\pi\Gamma_\nu + 2 \alpha I}
+\end{align}
+and get
+\begin{align}
+    (P_0-P_1)\alpha = \frac{2\pi\Gamma_\nu}{2\pi\Gamma_\nu + 2I \alpha_0\frac{\Gamma_\nu^2}{\Gamma_\nu^2 + \Delta\nu^2}}~ 
+    \alpha_0\frac{\Gamma_\nu^2}{\Gamma_\nu^2 + \Delta\nu^2} = \frac{\alpha_0\pi\Gamma_\nu^2}{\pi(\Gamma_\nu^2 + \Delta\nu^2)+I\alpha_0\Gamma_\nu}
+\end{align}
+dividing with \(\pi\Gamma_\nu \) and substitute in the denominator \(\alpha_0 \) with the definition of \( I_s = 2\pi\Gamma_\nu / \alpha_0 \) leads to
+\begin{align}
+    \alpha_0 \frac{1}{1 + \frac{\Delta\nu^2}{\Gamma_\nu} + \frac{2I}{I_s} } = \frac{\alpha_0}{(1 + \frac{2I}{I_s})}~\frac{1}{1+ \frac{\Delta\nu^2}{\Gamma_\nu^2(1 + \frac{2I}{I_s})}}
+\end{align}
+with the definition of the power-broadened \textit{width parameter}
+\begin{align}
+    \Gamma'_\nu = \Gamma_\nu \sqrt{1 + 2I/I_s}
+\end{align}
+we obtain
+\begin{align}
+    (P_0-P_1)\alpha = \frac{\alpha_0}{(1 + \frac{2I}{I_s})}~\mathcal{L}'(\nu,\nu_0)~~\text{and}~~\mathcal{L}'(\nu,\nu_0)= \frac{1}{1+ \frac{{(\nu-\nu_0)}^2}{{\Gamma'_\nu}^2}}
+\end{align}
 \pagebreak
 %********************************** % Sixth Section  *************************************
 \section{Behavior of absorption coefficient}  %Section - 1.6
@@ -169,8 +263,7 @@ lifetime \(6^{2}P_{3/2}\) & \multicolumn{2}{c}{\SI{112}{\nano\second}} \\
 Natural linewidth & \multicolumn{2}{c}{\(2\pi \times \SI{1.421}{\mega\hertz}\) } \\
 \bottomrule
 \end{tabular*}
-\caption{Properties of rubidium isotopes}
-\label{table:iso_prop}
+\caption{\label{table:iso_prop}Properties of rubidium isotopes}
 \end{table}
 \pagebreak
 
@@ -189,7 +282,7 @@ Natural linewidth & \multicolumn{2}{c}{\(2\pi \times \SI{1.421}{\mega\hertz}\) }
 The transition of interest is, as we have discussed before, the \(5^{2}S_{1/2} \rightarrow 6^{2}P_{3/2}\) of rubidium. As known rubidium
 occurs in two isotopes, \(^{85}\)Rb and \(^{87}\)Rb.
 As we can see both isotopes have the same transition energy, but due to the different spin I (see table:~\ref{table:iso_prop}) we get
-different energy levels for the groundstate \citep{nist_asd}. This is the reason why we wittness four doppler peaks in our spectrum.
+different energy levels for the groundstate \citep{nist_asd}. This is the reason why we witness four Doppler peaks in our spectrum.
 \bigskip
 
 \textbf{Caution:} Both figures below show the correct correlation between energy and isotopes. The reason for this is that the spectrum
@@ -200,15 +293,13 @@ shows transition energy and the other one the specific energy levels.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{spectrum_doppler}
-\caption{Doppler spectrum of D2 line}
-\label{fig:doppler} 
+\caption{\label{fig:doppler}Doppler spectrum of D2 line} 
 \end{figure}
 
 \vspace{\fill}
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \centering
 \includegraphics[width=0.6\textwidth]{groundstate}
-\caption{Relative energy gaps of the groundstates between both isotopes}
-\label{fig:gap} 
+\caption{\label{fig:gap}Relative energy gaps of the groundstates between both isotopes} 
 \end{figure}

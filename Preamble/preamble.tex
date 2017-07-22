@@ -1,3 +1,5 @@
+% Spellchecker ignore
+% cSpell:ignore bigints, custommargin, innerside, outerside, topmargin, ifset, parskip, whitespaces, raggedbottom, enumitem, setlist, topsep, customfont, helvet, setmainfont, opentype, Semibold, newfontfamily, libertinesystemfont, Pseudocode, algpseudocode, Hyperreferencing, labelsep, tableposition, figurename, labelfont, captionsetup, wrapfig, Uncomment, restylefloat, Subcaption, uncommenting, texlive, subcaption, booktabs, multirow, multicol, longtable, tabularx, siunitx, linespacing, doublespacing, onehalfspacing, singlespacing, clubpenalty, widowpenalty, perpage, footmisc, xfrac, mathl, cmsy, Lorentzian, cleveref, custombib, authoryear, natbib, biblatex, natbibpackage, backend, biber, citestyle, bibname, contentsname, listfigurename, listtablename, setcounter, secnumdepth, tocdepth, uncomment, nomname, appendixtocname, appendixpagename, appendixname, Appndx, setkeys, grayscale, todonotes, colorinlistoftodos, mynote, listoftodos, mathrm
 % ******************************************************************************
 % ****************************** Custom Margin *********************************
 
@@ -58,6 +60,9 @@
 \renewcommand{\figurename}{Fig.} %to support older versions of captions.sty
 \usepackage[font=small,labelfont=bf]{caption}
 
+% This package lets you refer to a chapter
+\usepackage{hyperref}
+
 %\usepackage{caption}
 %\captionsetup[table]{position=bottom} % Caption below table
 
@@ -111,9 +116,11 @@
 \setlength{\parindent}{0ex} % Paragraph indent on first row
 
 % Math packages and commands
-
+\usepackage{bigints}
 \usepackage{xfrac}
 \newcommand{\ket}[1]{\(\left|#1\right\rangle \)}
+\newcommand{\dd}{\mathrm{d}}
+
 
 \DeclareMathAlphabet\mathl{OMS}{cmsy}{b}{n} % for Lorentzian L(v,v')
 

@@ -1,6 +1,6 @@
 %!TEX root = ../thesis.tex
 % Spellcheck ignore
-% cSpell:ignore citep, ifpdf, graphicspath, bigskip, minipage, includegraphics, twolevel, captionof, nano, FWHM, linewidth, electronvolt, Linewidth, nlinewidth, Lorentzian, pagebreak, wrapfigure, photodiode, mathrm, itemsep, extracolsep, toprule, multicolumn, midrule, bottomrule, energylevel, hyperfine, groundstate, nist, groundstates, nonumber, Lorentzians
+% cSpell:ignore weakfield, intlorgau, gauvslor, atomicmassunit, citep, ifpdf, graphicspath, bigskip, minipage, includegraphics, twolevel, captionof, nano, FWHM, linewidth, electronvolt, Linewidth, nlinewidth, Lorentzian, pagebreak, wrapfigure, photodiode, mathrm, itemsep, extracolsep, toprule, multicolumn, midrule, bottomrule, energylevel, hyperfine, groundstate, nist, groundstates, nonumber, Lorentzians
 %*******************************************************************************
 %****************************** Second Chapter *********************************
 %*******************************************************************************
@@ -151,10 +151,10 @@ in laser gain media) if there are more atoms in the excited state (\(P_0>P_1\)).
 Atoms in a vapor cell move randomly in all directions with each component of velocity having a distribution
 of values. Only the component of velocity parallel to the laser beam direction will be important when taking
 into account Doppler shifts and it is this component we refer to with the symbol \(v \). The density of atoms
-\(\mathrm{d}n \) in the velocity group between \(v \) and \(v+\mathrm{d}v \) is given by the Boltzmann velocity
+\(\dd n \) in the velocity group between \(v \) and \(v+\dd v \) is given by the Boltzmann velocity
 distribution:
 \begin{align}
-    \mathrm{d}n = n_0\sqrt{ \frac{m}{2\pi k_B T} } e^{-mv^2 / 2 k_B T} \mathrm{d}v
+    \dd n = n_0 \sqrt{ \frac{m}{2\pi k_B T} } \exp{ \left( -\frac{mv^2}{2 k_B T} \right ) } \dd v
 \end{align}
 With a standard deviation given by:
 \begin{align}
@@ -162,7 +162,7 @@ With a standard deviation given by:
 \end{align}
 This is just a standard Gaussian distribution
 \begin{align}
-    \mathrm{d}n = n_0 \frac{1}{\sqrt{2\pi}\sigma_v}  e^{-v^2 / 2\sigma_v} \mathrm{d}v
+    \dd n = n_0 \frac{1}{\sqrt{2\pi}\sigma_v}  \exp{ \left( -\frac{v^2}{2 {\sigma_v}^2} \right ) } \dd v
 \end{align}
 with a mean of zero~--~indicating the atoms are equally likely to be going in either direction. It is properly
 normalized so that the integral over all velocities (\(-\infty \rightarrow \infty) \) is \(n_0 \), the overall
@@ -176,18 +176,84 @@ frequency
 in the lab frame. The sign has been chosen to be correct for a laser beam propagating in the positive direction
 so that the resonance frequency is blue shifted to higher frequencies if \(v \) is positive and red shifted if
 \(v \) is negative.\\
-The absorption coefficient \(\mathrm{d}\kappa \) from a velocity group \(\mathrm{d}n \) at a laser frequency 
-\(\nu \) is then obtained from Eq.~\ref{eq:kappa} by substituting \(\mathrm{d}n \) for \(n_0 \) and by adjusting
+The absorption coefficient \(\dd\kappa \) from a velocity group \(\dd n \) at a laser frequency 
+\(\nu \) is then obtained from Eq.~\ref{eq:kappa} by substituting \(\dd n \) for \(n_0 \) and by adjusting
 the Lorentzian dependence of \(\alpha \) so that it is centered on the Doppler shifted resonance frequency
 \(\nu'_0 \) (Eq.~\ref{eq:nu_shift}).
 \begin{align}
-    \mathrm{d}\kappa = h\nu \alpha_0(P_0-P_1) \mathcal{L}(\nu,\nu'_0) \mathrm{d}n
+    \dd\kappa = h\nu \alpha_0(P_0-P_1) \mathcal{L}(\nu,\nu'_0) \dd n
 \end{align}
 The absorption coefficient from all atoms is then found by integrating over all velocity groups.
 
 %********************************** % Fifth Section  *************************************
-\section{Population}   %Section - 2.5
-Before we can determine the absorption coefficient we need an expression for \(P_0-P_1 \).
+\section{\label{sec:weakfield}Absorption coefficient~-~weak field}   %Section - 2.5
+
+We treat the weak-laser case first where we have a very low intensity compared to \(I_\mathrm{s}\) and
+therefore nearly all atoms will be in the ground state, i.e., \(P_0-P_1 = 1 \) so that
+\begin{align}
+    \mathrm{d}\kappa = h\nu \alpha_0 n_0 \frac{1}{\sqrt{2\pi}\sigma_v} \mathcal{L}(\nu,\nu'_0) \exp{ \left( -\frac{v^2}{2 {\sigma_v}^2} \right ) } \dd v
+\end{align}
+and
+\begin{align}
+    \kappa = \underbrace{ h\nu \alpha_0 n_0 \frac{1}{\sqrt{2\pi}\sigma_v} }_{\beta} 
+    \int\limits_{-\infty}^{\infty} \frac{1}{ 1+4 {\left [\nu-\nu_0\left ( 1 + \frac{v}{c} \right) \right] }^2 / {\Gamma_\nu}^2 } 
+    \exp{ \left (-\frac{v^2}{ 2{\sigma_v}^2 }\right ) } \dd v
+\end{align}
+After the variable transformation
+\begin{align*}
+\left |~
+    \begin{aligned}
+        \nu'_0 =&~\nu_0\left ( 1+ \frac{v}{c} \right) \\
+        v =&\left ( \frac{\nu'_0}{\nu_0} - 1 \right) c =\left( \frac{\nu'_0 - \nu_0}{\nu_0} c\right) \\
+        \dd v =&~\frac{c}{\nu_0}~\dd \nu'_0
+    \end{aligned}
+~\right |~ = \beta~\frac{c}{\nu_0} \int\limits_{-\infty}^{\infty} \frac{1}{ 1+4 {(\nu-\nu'_0)}^2 / {\Gamma_\nu}^2 } 
+\exp{ \left ( -\frac{{(\nu'_0 - \nu_0)}^2 c^2 }{2 {\nu_0}^2 {\sigma_v}^2 } \right )} \dd \nu'_0
+\end{align*} 
+
+and substitution \(\sigma_\nu = \frac{\nu_0}{c} \sigma_v \) we get
+\begin{align}
+    = \beta~\frac{c}{\nu_0} \int\limits_{-\infty}^{\infty} \frac{1}{ 1+4 {(\nu-\nu'_0)}^2 / {\Gamma_\nu}^2 } 
+\exp{ \left ( -\frac{{(\nu'_0 - \nu_0)}^2 }{2 {\sigma_\nu}^2 } \right )} \dd \nu'_0 \label{eq:intlorgau}
+\end{align}
+Now we compare the width parameters from the Lorentzian (see table~\ref{table:iso_prop}) with the Gaussian function for a temperature of \SI{100}{\degreeCelsius}:
+
+\begin{minipage}[c][][c]{.45\textwidth}
+\centering
+\begin{align*}
+    &\sigma_\nu = \frac{c}{\lambda_\mathrm{D2}} \sqrt{\frac{k_B T}{m_{Rb85} c^2}} \approx \SI{455}{\mega\hertz} \\ \\
+    &\Gamma_{\nu,\mathrm{D2}} = \SI{0.282}{\mega\hertz} \\ \\
+    &\Rightarrow \Gamma_{\nu,\mathrm{D2}} \ll 2\cdot\sigma_\nu
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{.45\textwidth}
+\includegraphics[width=\textwidth]{gauvslor}
+\captionof{figure}{\label{fig:gauvslor} The Lorentzian compared to the Gaussian profile}
+\end{minipage}
+\bigskip
+
+As we can see the Lorentzian function is significantly different from zero only within a very narrow range.
+Consequently the Gaussian remains relatively constant over the width of \(\Gamma_{\nu,\mathrm{D2}} \).
+Therefore Eq.~(\ref{eq:intlorgau}) can be accurately determined as the integral of the Lorentzian times the 
+value of the exponential at \(\nu'_0 = \nu \):
+\begin{align}
+    = \beta~\frac{c}{\nu_0} \exp{ \left ( -\frac{{(\nu - \nu_0)}^2 }{2 {\sigma_\nu}^2 } \right )} 
+    \int\limits_{-\infty}^{\infty} \frac{1}{ 1+4 {(\nu-\nu'_0)}^2 / {\Gamma_\nu}^2 } \dd \nu'_0
+\end{align}
+and with the solution of the Lorentzian integral
+\begin{align}
+    \int\limits_{-\infty}^{\infty} \mathcal{L}(\nu,\nu'_0) \dd \nu'_0 = \frac{\pi \Gamma_\nu}{2}
+\end{align}
+we finally get the absorption coefficient in a weak field
+\begin{align}\label{eq:kappa_weakfield}
+    \kappa = \kappa_0 \exp{ \left ( -\frac{{(\nu - \nu_0)}^2 }{2 {\sigma_\nu}^2 } \right )} ~~\text{with}~~ \kappa_0 = h\nu \alpha_0 n_0 \frac{1}{\sqrt{2\pi}\sigma_\nu} \frac{\pi \Gamma_\nu}{2}
+\end{align}
+
+
+%********************************** % Sixth Section  *************************************
+\section{Population}   %Section - 2.6
+Before we can determine the general case of the absorption coefficient we need an expression for \(P_0-P_1 \).
 For that we have to take into account the changes to the ground and excited state populations arising
 from a laser beam propagating through the cell. The rate equations for the ground and excited state
 probabilities or fractions become:
@@ -234,11 +300,34 @@ with the definition of the power-broadened \textit{width parameter}
 \end{align}
 we obtain
 \begin{align}
-    (P_0-P_1)\alpha = \frac{\alpha_0}{(1 + \frac{2I}{I_s})}~\mathcal{L}'(\nu,\nu_0)~~\text{and}~~\mathcal{L}'(\nu,\nu_0)= \frac{1}{1+ \frac{{(\nu-\nu_0)}^2}{{\Gamma'_\nu}^2}}
+    (P_0-P_1)\alpha = \frac{\alpha_0}{(1 + \frac{2I}{I_s})}~\mathcal{L}'(\nu,\nu_0)~~\text{and}~~\mathcal{L}'(\nu,\nu_0)= \frac{1}{1+ \frac{{4(\nu-\nu_0)}^2}{{\Gamma'_\nu}^2}}
 \end{align}
 \pagebreak
-%********************************** % Sixth Section  *************************************
-\section{Behavior of absorption coefficient}  %Section - 1.6
+%********************************** % Seventh Section  *************************************
+\section{Absorption coefficient~-~general case}  %Section - 2.7
+For the general case we take now into account the velocity groups and their corresponding Doppler 
+shifts for the case \(P_0-P_1 \neq 1 \) and therefore 
+\begin{align}
+    \mathrm{d}\kappa = h\nu n_0 \frac{\alpha_0}{(1 + \frac{2I}{I_s})} \frac{1}{\sqrt{2\pi}\sigma_v} \mathcal{L}'(\nu,\nu'_0) \exp{ \left( -\frac{v^2}{2 {\sigma_v}^2} \right ) } \dd v
+\end{align}
+and
+\begin{align}
+    \kappa = h\nu n_0 \frac{\alpha_0}{(1 + \frac{2I}{I_s})} \frac{1}{\sqrt{2\pi}\sigma_v} 
+    \int\limits_{-\infty}^{\infty} \frac{1}{ 1+4 {\left [\nu-\nu_0\left ( 1 + \frac{v}{c} \right) \right] }^2 / {\Gamma'_\nu}^2 } 
+    \exp{ \left (-\frac{v^2}{ 2{\sigma_v}^2 }\right ) } \dd v
+\end{align}
+The calculation can be performed as in Section~\ref{sec:weakfield} with the only addition of the
+the power-broadened \textit{width parameter} \(\Gamma'_\nu \). This leads to
+\begin{align}
+    \kappa'_0 &= h\nu n_0 \frac{\alpha_0}{(1 + \frac{2I}{I_s})} \frac{1}{\sqrt{2\pi}\sigma_\nu} \frac{\pi \Gamma'_\nu}{2}
+    = h\nu n_0 \frac{\alpha_0}{(1 + \frac{2I}{I_s})} \frac{1}{\sqrt{2\pi}\sigma_\nu} \frac{\pi \Gamma_\nu}{2} \sqrt{1+ \frac{2I}{I_s}} \nonumber \\
+    &= h\nu n_0 \frac{\alpha_0}{\sqrt{1 + \frac{2I}{I_s}}} \frac{1}{\sqrt{2\pi}\sigma_\nu} \frac{\pi \Gamma_\nu}{2}
+    = \frac{\kappa_0}{\sqrt{1 + \frac{2I}{I_s}}}
+\end{align}
+and subsequently
+\begin{align}
+    \kappa = \kappa'_0 \exp{ \left ( -\frac{{(\nu - \nu_0)}^2 }{2 {\sigma_\nu}^2 } \right )} \label{eq:kappa_general}
+\end{align}
 
 \pagebreak
 %********************************** % Seventh Section  *************************************
@@ -246,21 +335,26 @@ we obtain
 
 \pagebreak
 
-\section{Relevant data}
+\section{Data table}
 
 \begin{table}[h]
 \centering
-\begin{tabular*}{0.5\textwidth}{@{\extracolsep{\fill} }l c c}
+\begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill} }l l c c}
 \toprule
-& \multicolumn{2}{c}{Rubidium} \\
+& & \multicolumn{2}{c}{Rubidium} \\
 \midrule
-Isotope & 85 & 87 \\
-Atomic mass & 84.911794 & 86.909187 \\
-in \(10^{-25}\)kg & 1.40999 & 1.44316 \\
-Abundance & 72.17\% & 27.83\% \\
-Spin I & \(\sfrac{5}{2}\) & \(\sfrac{3}{2}\) \\
-lifetime \(6^{2}P_{3/2}\) & \multicolumn{2}{c}{\SI{112}{\nano\second}} \\
-Natural linewidth & \multicolumn{2}{c}{\(2\pi \times \SI{1.421}{\mega\hertz}\) } \\
+Isotope & [1] & 85 & 87 \\
+Atomic mass & [\si{\atomicmassunit}] & 84.911794 & 86.909187 \\
+\num{e-25} & [\si{\kilogram}] & 1.40999 & 1.44316 \\
+Abundance & [\si{\percent}] & 72.17 & 27.83 \\
+Spin I & [1] & \(\sfrac{5}{2}\) & \(\sfrac{3}{2}\) \\
+Lifetime \(6^{2}P_{3/2}\) & \([ \si{\nano\second} ]\) & & \num{112} \\
+Wavelength D1-Line (\(6^{2}P_{1/2} \rightarrow 5^{2}S_{1/2}\)) & [\si{\nano\meter}] & 421.5524 & \\
+Wavelength D2-Line (\(6^{2}P_{3/2} \rightarrow 5^{2}S_{1/2}\)) & [\si{\nano\meter}] & 420.1792 & \\
+A\(_{\mathrm{ki,D1}},~\Gamma_{\omega,\mathrm{D1}}\) & \([ \si{\per\second} ] \) & \num{1.50e6} & \\
+A\(_{\mathrm{ki,D2}},~\Gamma_{\omega,\mathrm{D2}}\) & \([ \si{\per\second} ] \) & \num{1.77e6} & \\
+Natural linewidth \(\Gamma_{\nu,\mathrm{D1}}\) & \([ \si{\mega\hertz} ]\) & \num{0.239} & \\
+Natural linewidth \(\Gamma_{\nu,\mathrm{D2}}\) & \([ \si{\mega\hertz} ]\) & \num{0.282} & \\
 \bottomrule
 \end{tabular*}
 \caption{\label{table:iso_prop}Properties of rubidium isotopes}

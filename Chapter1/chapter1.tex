@@ -1,9 +1,12 @@
 %!TEX root = ../thesis.tex
+% Spellchecker ignore
+% cSpell:ignore ifpdf, graphicspath, detuned, bigskip, nano, citep, milli, detuning, medskip, mathrm
 %*******************************************************************************
 %****************************** First Chapter **********************************
 %*******************************************************************************
 
-\chapter{Theory of laser trapping of atoms}
+\chapter{\label{chap:dipole}Theory of laser trapping of atoms}
+
 
 \ifpdf{}
     \graphicspath{{Chapter1/Figs/Raster/}{Chapter1/Figs/PDF/}{Chapter1/Figs/}}
@@ -35,16 +38,16 @@ the BMR to the 1\(^{st}\) maxima. But in the formula \citep{grimm} of the trap p
 arises the transition strength (\(\Gamma_\omega \)) of this specific transition:
 \bigskip
 \begin{align}
-    U_{dip}(\mathbf{r})=-\frac{\pi c^2}{\hbar\omega_0^3} \left( \frac{\Gamma_\omega}{\Delta} \right) I(\mathbf{r})
+    U_\mathrm{dip}(\mathrm{z})=-\frac{\pi c^2}{2\omega_0^3} \left( \frac{2\Gamma_{\omega,\mathrm{D2}}}{\Delta_{\mathrm{D2}}} + \frac{\Gamma_{\omega,\mathrm{D1}}}{\Delta_{\mathrm{D1}}}\right) I(\mathrm{z})
 \end{align}
 \bigskip
 We have to compare this potential to the kinetic energy of our rubidium atoms. The atoms fall approximately
-\SI{60}{\milli\second} and the corresponding kinetic engergy would be \(E_{kin} = \frac{1}{2} m_{Rb} v^2\).
+\SI{60}{\milli\second} and the corresponding kinetic energy would be \(E_{kin} = \frac{1}{2} m_{Rb} v^2\).
 In terms of temperature we would get: \(E_{kin} / k_B = \SI{1.77}{\milli\kelvin} \). This is quite huge
 for a dipole trap. For that reason one needs to know \(\Gamma_{\omega,420nm-Line} \) and one also needs to have a trap
 with a small detuning. This requires to see the transitions to have a reference to lock the laser afterwards.
 \bigskip
-To determine \(\Gamma_{\omega,420nm-Line} \) we can use the relation with the intensity saturation:
+To determine \(\Gamma_{\omega,420nm-Line} \) we can use a theoretical relation with the intensity saturation, which has to be checked by our measurement:
 \begin{align}
     I_{s,420} &= \frac{\Gamma_{\omega,tot,420}\cdot{\omega_{420}}^3\cdot I_{s,780}}{\Gamma_{\omega,420}\cdot\Gamma_{\omega,780}\cdot{\omega_{780}}^3}
 \end{align}
@@ -52,6 +55,7 @@ To determine \(\Gamma_{\omega,420nm-Line} \) we can use the relation with the in
     \text{with~~~} \Gamma_{\omega,tot,420} &= \frac{1}{total~lifetime~of~6P_{3/2}~state}
 \end{align*}
 \medskip
+
 
 \(\Rightarrow \) We want to measure \(I_{s}\) for the blue \SI{420.29}{\nano\meter}-line. 
 

@@ -1,5 +1,5 @@
 % Spellchecker ignore
-% cSpell:ignore bigints, custommargin, innerside, outerside, topmargin, ifset, parskip, whitespaces, raggedbottom, enumitem, setlist, topsep, customfont, helvet, setmainfont, opentype, Semibold, newfontfamily, libertinesystemfont, Pseudocode, algpseudocode, Hyperreferencing, labelsep, tableposition, figurename, labelfont, captionsetup, wrapfig, Uncomment, restylefloat, Subcaption, uncommenting, texlive, subcaption, booktabs, multirow, multicol, longtable, tabularx, siunitx, linespacing, doublespacing, onehalfspacing, singlespacing, clubpenalty, widowpenalty, perpage, footmisc, xfrac, mathl, cmsy, Lorentzian, cleveref, custombib, authoryear, natbib, biblatex, natbibpackage, backend, biber, citestyle, bibname, contentsname, listfigurename, listtablename, setcounter, secnumdepth, tocdepth, uncomment, nomname, appendixtocname, appendixpagename, appendixname, Appndx, setkeys, grayscale, todonotes, colorinlistoftodos, mynote, listoftodos, mathrm
+% cSpell:ignore cmmnt, ignorespaces, belowdisplayskip, abovedisplayskip, bigints, custommargin, innerside, outerside, topmargin, ifset, parskip, whitespaces, raggedbottom, enumitem, setlist, topsep, customfont, helvet, setmainfont, opentype, Semibold, newfontfamily, libertinesystemfont, Pseudocode, algpseudocode, Hyperreferencing, labelsep, tableposition, figurename, labelfont, captionsetup, wrapfig, Uncomment, restylefloat, Subcaption, uncommenting, texlive, subcaption, booktabs, multirow, multicol, longtable, tabularx, siunitx, linespacing, doublespacing, onehalfspacing, singlespacing, clubpenalty, widowpenalty, perpage, footmisc, xfrac, mathl, cmsy, Lorentzian, cleveref, custombib, authoryear, natbib, biblatex, natbibpackage, backend, biber, citestyle, bibname, contentsname, listfigurename, listtablename, setcounter, secnumdepth, tocdepth, uncomment, nomname, appendixtocname, appendixpagename, appendixname, Appndx, setkeys, grayscale, todonotes, colorinlistoftodos, mynote, listoftodos, mathrm
 % ******************************************************************************
 % ****************************** Custom Margin *********************************
 
@@ -113,7 +113,12 @@
 
 %\usepackage[perpage]{footmisc} %Range of footnote options
 
-\setlength{\parindent}{0ex} % Paragraph indent on first row
+\newcommand{\cmmnt}[1]{\ignorespaces} % command function
+
+\setlength{\abovedisplayskip}{10pt} % For spacing above align segment
+\setlength{\belowdisplayskip}{10pt} % For spacing below align segment 
+
+\setlength{\parindent}{2ex} % Paragraph indent on first row
 
 % Math packages and commands
 \usepackage{bigints}

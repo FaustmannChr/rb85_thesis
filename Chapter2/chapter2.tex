@@ -5,17 +5,21 @@
 %****************************** Second Chapter *********************************
 %*******************************************************************************
 
+\ifpdf{}
+\graphicspath{{Chapter2/Figs/Raster/}{Chapter2/Figs/PDF/}{Chapter2/Figs/}}
+\else
+\graphicspath{{Chapter2/Figs/Vector/}{Chapter2/Figs/}}
+\fi
+
 \chapter{Absorption of photon by an atom}  %Title of the Second Chapter
 The purpose of this section is to outline the basic features observed in saturated absorption
 spectroscopy and relate them to simple atomic and laser physics principles.
 For this we will follow the guidance of \citep{SAS} and \citep{SAS_appendix}.
 
-\ifpdf{}
-    \graphicspath{{Chapter2/Figs/Raster/}{Chapter2/Figs/PDF/}{Chapter2/Figs/}}
-\else
-    \graphicspath{{Chapter2/Figs/Vector/}{Chapter2/Figs/}}
-\fi
-
+A Atomic spectrum is composed of several absorption lines, but usually well 
+separated. So if we are close to one line absorption of light by another
+line is negligible. In that case the system can be described by a two-level
+atom, which we will use in the further sections.
 
 
 %********************************** % First Section  *************************************
@@ -34,9 +38,9 @@ There are three transition processes involving atoms and laser fields:
 
 \begin{minipage}[c][][c]{.35\textwidth}
 \begin{itemize}
-\item[(1)] stimulated absorption
-\item[(2)] stimulated emission
-\item[(3)] spontaneous emission
+\item[(1)] absorption
+\item[(2)] spontaneous emission
+\item[(3)] stimulated emission
 \end{itemize}
 \end{minipage}
 \hfill
@@ -349,6 +353,7 @@ Atomic mass & [\si{\atomicmassunit}] & 84.911794 & 86.909187 \\
 Abundance & [\si{\percent}] & 72.17 & 27.83 \\
 Spin I & [1] & \(\sfrac{5}{2}\) & \(\sfrac{3}{2}\) \\
 Lifetime \(6^{2}P_{3/2}\) & \([ \si{\nano\second} ]\) & & \num{112} \\
+Lifetime \(6^{2}P_{1/2}\) & \([ \si{\nano\second} ]\) & & \num{125} \\
 Wavelength D1-Line (\(6^{2}P_{1/2} \rightarrow 5^{2}S_{1/2}\)) & [\si{\nano\meter}] & 421.5524 & \\
 Wavelength D2-Line (\(6^{2}P_{3/2} \rightarrow 5^{2}S_{1/2}\)) & [\si{\nano\meter}] & 420.1792 & \\
 A\(_{\mathrm{ki,D1}},~\Gamma_{\omega,\mathrm{D1}}\) & \([ \si{\per\second} ] \) & \num{1.50e6} & \\

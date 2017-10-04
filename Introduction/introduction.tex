@@ -1,6 +1,6 @@
 %!TEX root = ../thesis.tex
 % Spellchecker ignore
-% cSpell:ignore includegraphics, ifpdf, graphicspath, Rauschenbeutel, nanowaveguides, microresonator, signicant, nanofiber, textasciitilde, autoref
+% cSpell:ignore Lett, detuned, nano, retroreflection, includegraphics, ifpdf, graphicspath, Rauschenbeutel, nanowaveguides, microresonator, signicant, nanofiber, textasciitilde, autoref
 %*******************************************************************************
 %****************************** Introduction ***********************************
 %*******************************************************************************
@@ -14,29 +14,41 @@
     \graphicspath{{Introduction/Figs/Vector/}{Introduction/Figs/}}
 \fi
 
-One of Prof.\ Rauschenbeutel projects uses a novel type of whispering-gallery-mode (WGM)
-resonator interfaced via nanowaveguides and coupled to single Rubidium atoms to carry out
-experiments in the realm of Cavity Quantum Electrodynamics. The WGM resonator
-is a so-called bottle-microresonator (BMR) manufactured from a standard optical glass
-fiber in a heat and pull process. The light is radially confined inside the resonator by
-total internal reflection and propagates along the circumference of the resonator. In such
-a structure, a signicant fraction of the light field propagates in the evanescent field. By
-overlapping this field with the evanescent field of an optical nanofiber, light can be coupled
-into and out of the resonator very efficiently. Due to the extremely low absorption
-of silica (and low surface roughness) we can produce bottle-resonators with ultra-high
-optical Q-factor exceeding 10\(^{8}\). Rubidium atoms are delivered to the resonator using
-an atomic fountain. When the atoms enter the vicinity of the WGM, and they are in the evanescent
-field they can be coupled to the light. For the moment the atoms are only flying by the 
-resonator, but only for \textasciitilde{}\SI{2}{\micro\second} and moreover the distance 
-between the resonator and the atom is not controlled. This prevents the realization from 
-more complicated experiments. For that reason one needs to trap the atom.
-The choice made to trap the atom is to use a dipole trap (see \autoref{chap:dipole}), which
-is a conservative trap. Because the atoms have a velocity dispersion, we do not know in
-advance when and where the atoms enter the evanescent field. For that we need to consider that
-they arrive with some kinetic energy \(\Rightarrow \text{trap depth} \gg E_{kin} \).\\
-The aim of this Bachelor thesis is to elaborate all the parameters needed to realise the trap.
-\vspace{\fill}
 \begin{figure}[hb]
     \centering
     \includegraphics[width=0.6\textwidth]{resonator_trap}
+    \caption{\label{fig:resonator_trap} Schematic representation of a WGM 
+    resonator and a optical dipole trap}
 \end{figure}
+One of Prof.\ Rauschenbeutel projects uses a novel type of whispering-gallery-mode (WGM)
+resonator interfaced via nanowaveguides and coupled to single Rubidium atoms to 
+carry out experiments in the realm of Cavity Quantum Electrodynamics. The WGM 
+resonator is a so-called bottle-microresonator (BMR) manufactured from a standard 
+optical glass fiber in a heat and pull process. The light is radially confined 
+inside the resonator by total internal reflection and propagates along the 
+circumference of the resonator. In such a structure, a signicant fraction of the 
+light field propagates in the evanescent field. By overlapping this field with 
+the evanescent field of an optical nanofiber, light can be coupled into and out 
+of the resonator very efficiently. Due to the extremely low absorption of silica 
+(and low surface roughness) we can produce bottle-resonators with ultra-high 
+optical Q-factor exceeding 10\(^{8}\). Rubidium atoms are delivered to the 
+resonator using an atomic fountain. When the atoms enter the vicinity of the WGM, 
+and they are in the evanescent field they can be strongly coupled to the light. 
+For the moment the \(^{85}Rb\) atoms are only flying by the resonator for 
+\textasciitilde{}\SI{2}{\micro\second}. Moreover the distance between the 
+resonator and the atom is not controlled. This uncertainty induces fluctuations
+on the atom-resonator coupling from shot to shot and limits the efficiency of the
+different devices demonstrated with the setup. The short duration of the atom
+light interaction also prevents the manipulation of the atomic state, necessary
+for the realization of complex quantum information protocols such as two photon
+gates~\cite{PhysRevLett.92.127902}. The solution would be to trap the atom at the
+vicinity of the BMR\. The choice made to trap the atom is to use a dipole trap 
+created from the retroreflection of a focused beam on the resonator surface 
+inspired from~\cite{Thompson1202} (see Fig.~\ref{fig:resonator_trap}). Due to the 
+experiment configuration, the trap can not be loaded from a dense cloud, but only 
+from the atoms flying next to the resonator, which have a non-zero velocity, which 
+further implies that a big trap depth is needed. The usual dipole traps are built 
+with lasers detuned from the transition between the ground and the first excited 
+state. But this would create a trap too far from the resonator and thus in this 
+thesis, we discuss the possibility to realise a trap detuned from the second exited 
+state of \(^{85}\)Rb which has transitions at \(\lambda \approx \SI{420}{\nano\meter} \). 

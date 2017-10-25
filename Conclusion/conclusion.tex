@@ -1,0 +1,52 @@
+%!TEX root = ../thesis.tex
+% Spellcheck ignore
+% cSpell:ignore addcontentsline, freerunning, detuning, microresonator, misestimates, Mathematica, modelfit, kappaplot, isat, powermeter, mathrm, giga, kappamodelratio, realrubidium, hyperfine, kappacorrection, intcorrection, powercorrection, multicolumn, extracolsep, toprule, midrule, bottomrule, fitplot, gaussians, nonumber, spectrumlegend, FWHM, diaminplot, meanplot, diaplot, bigskip, captionof, minipage, pagebreak, wincam, includegraphics,wrapfigure, ifpdf, graphicspath
+%*******************************************************************************
+%******************************* Fifth Chapter *********************************
+%*******************************************************************************
+
+%\chapter{Comparison with theory and conclusion}
+%\chapter{Conclusion}
+\chapter*{Conclusion} 
+\addcontentsline{toc}{chapter}{Conclusion}
+
+% **************************** Define Graphics Path ****************************
+\ifpdf{}
+    \graphicspath{{Chapter5/Figs/Raster/}{Chapter5/Figs/PDF/}{Chapter5/Figs/}}
+\else
+    \graphicspath{{Chapter5/Figs/Vector/}{Chapter5/Figs/}}
+\fi
+
+The values of \(I_{s}\) for the different fits are quiet scattered. Normally
+one should measure the same value for both isotopes and independently of the
+internal state. This is an indication that we probably
+underestimated error bars. For example, we considered a scan over the line to be
+linear in frequency but it is probably a sinusoidal modulation and we did not
+take that into account in your fits. Additionally the obtained value is 
+much smaller than the theoretical value (\SI{126}{\watt\per\meter\squared}).
+This is not what we would expect. Due to deficiencies, like a finite transmission
+of the cell windows, normally one has to send more power than in theory. The 
+discrepancy of a factor of 4 between the measurement and the theory can still be
+understood by different misestimates during the measurement and data processing. \\
+One reason would be that the Beer-Lambert law was not valid, because our beam 
+intensity was to high. This was checked by selecting only measurements with lower
+intensity, but it only leads to a \SI{10}{\percent} improvement. 
+Another reason for the deviation could be the use of the wrong polarization for
+the beam. Instead of \(\pi \)-polarization it should be \(\sigma_{+}\) or 
+\(\sigma_{-}\) to drive a closed transition.  
+But the most prominent cause for our low saturation intensity is by far the rough 
+shape of our beam profile, which leads to an inaccurate determination of the input 
+intensity. Due to the power fluctuations of \SI{30}{\percent} over the beam diameter, 
+part of the atoms would saturate before the rest. One could now calculate a more
+complicated intensity profile and repeat the analysis. An overall increase in 
+intensity would improve \(I_{s}\) in direct proportions.\\
+In conclusion, in this thesis we have studied the possibility to use the \(5S_{1/2}\)
+to \(6P_{3/2}\) transition to create a dipole trap for atoms close to a microresonator
+surface. We have then reported on the implementation of a new laser bench used
+to realize this dipole trap. And in order to confirm that the order of magnitude
+of the transition strength \(\Gamma_{6P_{3/2}}\) was indeed correct, we performed
+a spectroscopy measurement, leading to the evaluation of \(I_{s}\) for this
+transition. This spectroscopy could also be used to lock the laser on an atomic
+resonance, which will be needed, since the estimated detuning needed for the trap
+to be deep enough is to small to let the laser freerunning. 
+

@@ -1,3 +1,5 @@
+% Spellchecker ignore
+% cSpell:ignore ifsetFont, setFonttrue
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                            %%
 %% Class ``PhD Thesis PSnPDF''                                                %%
@@ -32,23 +34,23 @@
 \DeclareOption{index}{\PHD@indextrue}
 
 % ******************************* Font Option **********************************
-\newif\ifsetFont\setFontfalse                 % Font is not set
+\newif\ifsetFont\setFontfalse{}                 % Font is not set
 
 \newif\ifPHD@times\PHD@timesfalse             % Times with Math Support
 \DeclareOption{times}{
-  \ifsetFont
+  \ifsetFont{}
     \ClassWarning{PhDThesisPSnPDF}{Font selection conflict: A font package was
       aleady specified. Please check the document class options in case you 
       have defined two fonts.}
   \else
     \PHD@timestrue
-    \setFonttrue
+    \setFonttrue{}
   \fi
 }
 
 \newif\ifPHD@fourier\PHD@fourierfalse         % Fourier with Math Support
 \DeclareOption{fourier}{
-  \ifsetFont
+  \ifsetFont{}
     \ClassWarning{PhDThesisPSnPDF}{Font selection conflict: A font package was
       aleady specified. Please check the document class options in case you 
       have defined two fonts.}
@@ -60,7 +62,7 @@
 
 \newif\ifsetCustomFont\setCustomFontfalse     % Custom Font with Math Support
 \DeclareOption{customfont}{
-  \ifsetFont
+  \ifsetFont{}
     \ClassWarning{PhDThesisPSnPDF}{Font selection conflict: A font package was
       aleady specified. Please check the document class options in case you 
       have defined two fonts.}
@@ -539,7 +541,7 @@ supported!}
 \fi % Times font
 
 % If Font is not set throw a warning.
-\ifsetFont
+\ifsetFont{}
 \else
   \ClassWarning{PhDThesisPSnPDF}{Using default font Latin Modern. If you
     would like to use other pre-defined fonts use `times' (The Cambridge 

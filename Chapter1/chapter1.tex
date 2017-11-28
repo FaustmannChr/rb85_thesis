@@ -1,6 +1,6 @@
 %!TEX root = ../thesis.tex
 % Spellchecker ignore
-% cSpell:ignore dipolpotenial, depump, acousto, levelscheme, Oshea, retroreflection, antinode, itemsep, redbluedetuning, trapdepth, giga, detuningopt, cmmnt, waals, potentialoverlap, eqref, dipolepot, wrapfigure, intensityplot, includegraphics, retroreflected, detunings, linewidth, dispersive, antinodes, pagebreak, ifpdf, graphicspath, detuned, bigskip, nano, citep, milli, detuning, medskip, mathrm
+% cSpell:ignore clearpage, dipolpotenial, depump, acousto, levelscheme, Oshea, retroreflection, antinode, itemsep, redbluedetuning, trapdepth, giga, detuningopt, cmmnt, waals, potentialoverlap, eqref, dipolepot, wrapfigure, intensityplot, includegraphics, retroreflected, detunings, linewidth, dispersive, antinodes, pagebreak, ifpdf, graphicspath, detuned, bigskip, nano, citep, milli, detuning, medskip, mathrm
 %*******************************************************************************
 %****************************** First Chapter **********************************
 %*******************************************************************************
@@ -88,6 +88,7 @@ Interestingly Rubidium atoms also have a transition from \(5S_{1/2}~\text{to}~6P
 at \SI{420}{\nano\meter} as can be seen in Fig.~\ref{fig:levelscheme}.
 In the next section we will establish the trap parameters necessary to trap the
 atoms.
+\clearpage
 \pagebreak
 
 \begin{figure}[h]
@@ -106,7 +107,7 @@ the atom or depump the atom in which case it cannot be detected
 anymore. The scattering rate is proportional 
 to \(\frac{I}{\Delta^2} \) (Eq.~\ref{eq:scattering_simple}), so a detuning as big 
 as possible would be beneficial. On the other hand laser power is limited 
-(\(P_{\max}=\SI{80}{\milli\watt} \)), due to the maximum power output of our laser.
+(\(P_{\max}=\SI{78}{\milli\watt} \)), due to the maximum power output of our laser.
 And additionally we do not want to send too much power onto the resonator, because 
 due to the highly focused beam (\(w_0 = \SI{3.6}{\micro\meter} \)), the more
 energetic wavelength and more absorption of the glass in the blue spectrum the 
@@ -164,7 +165,7 @@ with \(r \) the reflection coefficient in amplitude, which is in case of a
 glass/vacuum interface \(r = -0.2 \). \(k_z \) is the wave vector in z-direction 
 and equal to \(\frac{2\pi}{\lambda} \). This leads to the intensity
 \begin{align}
-    I(z) = \frac{ { 2| \vec{E}(z) | }^2}{\eta}
+    I(z) = \frac{ { 2~| \vec{E}(z) | }^2}{\eta}
 \end{align}
 depicted in Fig.~\ref{fig:intensityplot}. Where 
 \(\eta = \eta_0 = \frac{1}{\epsilon_0 c_0} \approx \SI{377}{\ohm} \) is the 
@@ -172,9 +173,9 @@ characteristic impedance of free space and \(\frac{2~{E_0}^2}{\eta} \) will be
 denoted as the maximum intensity \(I_0 \) and related to the power of a gaussian 
 beam as
 \begin{align}
-    P_0 = \frac{1}{2}~I_0 {w_0}^2 \pi~.
+    P_0 = \frac{1}{2} I_0~ {w_0}^2~\pi~.
 \end{align} 
-The range of power accessible is between \(0~<~P_0~<\SI{80}{\milli\watt} \), due
+The range of power accessible is between \(0~<~P_0~<\SI{78}{\milli\watt} \), due
 the maximum laser output power. 
 
 \begin{wrapfigure}{Hr}{.4\textwidth}
@@ -187,7 +188,7 @@ the maximum laser output power.
 \end{wrapfigure}
 
 The trap depth must be bigger than the energy of the atom, here the kinetic energy 
-\(E_{kin} = \frac{1}{2}m_{Rb} v^2 \) has to be taken into account due to the fact 
+\(E_{kin} = \frac{1}{2}m_{Rb}~v^2 \) has to be taken into account due to the fact 
 that the atoms are free falling for up to \SI{60}{\milli\second}. It corresponds 
 in terms of temperature to \(E_{kin}/k_B = \SI{1.77}{\milli\kelvin} \). Our trap 
 is conservative. When an atom is captured it gains the potential energy at its
@@ -197,7 +198,7 @@ capture more atoms. For example a \SI{5}{\milli\kelvin} trap would capture
 \(\frac{5-1.77}{5} \approx \SI{60}{\percent} \) of atoms entering the trap if all
 the atoms have the maximum kinetic energy (worst case scenario). In our setup we 
 are so close to the resonator that the atoms are also sensitive to the Van-der-Waals 
-potential\cite{PhysRevA.89.022511}
+potential~\cite{PhysRevA.89.022511}
 \begin{align}
     U_{VdW} = -\frac{C_3}{r^3}~.
 \end{align} 
@@ -230,11 +231,11 @@ on the \(5S_{1/2} \rightarrow 6P_{3/2} \) transition (see Chapter 3).
 
 As seen in equation~\ref{eq:dipolpotenial} to calculate the trap depth, the 
 transition strength plays a significant role. As \(\Gamma_{6P_{3/2}}\) is harder
-to determine, but can be linked to the saturation intensity by the theoretical
+to determine, it can be linked to the saturation intensity by the theoretical
 formula
 \begin{align}
     I_{s,420} &= \frac{{\Gamma_{\omega,tot,420}}^2\cdot{\omega_{420}}^3\cdot I_{s,780}}
-    {\Gamma_{\omega,420}\cdot\Gamma_{\omega,780}\cdot{\omega_{780}}^3} 
+    {\Gamma_{\omega,420}\cdot\Gamma_{\omega,780}\cdot{\omega_{780}}^3} \\
     &= \SI{126}{\watt\per\meter\squared}~,
 \end{align} 
 which we would like to confirm. The index 420 corresponds to 
